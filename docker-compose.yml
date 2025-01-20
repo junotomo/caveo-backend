@@ -8,11 +8,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      COGNITO_USER_POOL_ID: us-east-2_WbrfTzi3R
-      COGNITO_CLIENT_ID: 7fu07erdutd78qni5iunepql79
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: User
+      COGNITO_USER_POOL_ID: <USER_POOL_ID>
+      COGNITO_CLIENT_ID: <CLIENT_ID>
+      POSTGRES_USER: <usuario>
+      POSTGRES_PASSWORD: <senha>
+      POSTGRES_DB: <banco>
       DB_HOST: postgres
       DB_PORT: 5432
     depends_on:
@@ -20,7 +20,7 @@ services:
     command: npm run dev
 
   postgres:
-    image: bitnami/postgresql:latest
+    image: postgres:14
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
@@ -31,4 +31,4 @@ services:
       - "5432:5432"
 
 volumes:
-  postgres-data: /bitnami/postgresql
+  postgres-data:
